@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -10,6 +9,9 @@
 </div>
 <div>
 email:<%= @user.email %>
+</div>
+<div>
+area:<%= @user.area %>
 </div>
  
     </section>
@@ -42,7 +44,7 @@ email:<%= @user.email %>
 )</h3>
      <ol class="follower_users">
  
-           <%= render partial: 'follower_users/follower_user', collection: @follower_users %>
+          <%= render partial: 'follower_users/follower_user', collection: @follower_users %>
         
       </ol>
 
@@ -61,16 +63,3 @@ email:<%= @user.email %>
 
   </div>
 </div>
-=======
-<ul>
-
-      <%= gravatar_for @user %> <%= @user.name %>
-  
-  <li>
-      <%= @user.email %>
-  </li>
-  <li>
-      <%= @user.area %>
-  </li>
-</ul>
->>>>>>> user-profile

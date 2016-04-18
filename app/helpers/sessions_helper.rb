@@ -10,12 +10,7 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.url if request.get?
   end
-<<<<<<< HEAD
-end
-
-=======
   
->>>>>>> user-profile
   # 与えられたユーザーをログイン
   def log_in(user)
     session[:user_id] = user.id
@@ -31,10 +26,6 @@ end
   # 与えられたユーザーがログイン済みユーザーであればtrueを返す
   def current_user?(user)
     user == current_user
-<<<<<<< HEAD
-  end
-=======
   end
   
 end
->>>>>>> user-profile
