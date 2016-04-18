@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post   'login' , to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   get    'setting' , to: 'sessions#edit'
+<<<<<<< HEAD
   get    'profile' ,to:'users#followers'
   get    'profile' ,to:'users#followings'
   
@@ -14,4 +15,9 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :following_users
   resources :follower_users
+=======
+
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy, :edit, :update]
+>>>>>>> user-profile
 end

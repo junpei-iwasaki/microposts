@@ -1,4 +1,5 @@
 class MicropostsController < ApplicationController
+<<<<<<< HEAD
   before_action :logged_in_user, only: [:create]
 
   def create
@@ -25,3 +26,6 @@ class MicropostsController < ApplicationController
     params.require(:micropost).permit(:content)
   end
 end
+=======
+end
+>>>>>>> user-profile
