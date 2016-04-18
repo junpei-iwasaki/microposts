@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.order(created_at: :desc)
  end
   
+ def favorites 
+    @user = User.find(params[:id])
+ end
+end
   def new
     @user = User.new
   end
@@ -25,4 +29,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
   end
-end
