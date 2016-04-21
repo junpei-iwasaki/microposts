@@ -2,18 +2,6 @@
   <aside class="col-md-4">
     <section class="user_info">
 
-<<<<<<< HEAD
-<div>
-<%= gravatar_for @user %> 
-
-<%= @user.name %>
-</div>
-<div>
-email:<%= @user.email %>
-</div>
-
- 
-=======
 
 
 
@@ -31,7 +19,6 @@ area:<%= @user.area %>
 <li>
 <%= link_to "followings" , followings_path(@user) %>
   </li>
->>>>>>> followings-followers
     </section>
   </aside>
   <div class="col-md-8">
@@ -53,7 +40,6 @@ area:<%= @user.area %>
     <%= paginate @microposts %>
 <% end %>
 
-<<<<<<< HEAD
 <%# フォロワー %>
 
 
@@ -61,19 +47,12 @@ area:<%= @user.area %>
       <h3>follower (
 <%= @user.follower_users.count %>
 )</h3>
-=======
-
-
-     
-
->>>>>>> followings-followers
      <ol class="follower_users">
  
           <%= render partial: 'follower_users/follower_user', collection: @follower_users %>
         
       </ol>
 
-<<<<<<< HEAD
 <%# フォロー %>
 
 
@@ -87,7 +66,5 @@ area:<%= @user.area %>
       </ol>
 
 
-=======
->>>>>>> followings-followers
   </div>
 </div>
