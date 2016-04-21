@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418045610) do
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "tweet_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "favorites", ["created_at"], name: "index_favorites_on_created_at"
-  add_index "favorites", ["tweet_id"], name: "index_favorites_on_tweet_id"
-  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+ActiveRecord::Schema.define(version: 20160417235937) do
 
   create_table "microposts", force: :cascade do |t|
     t.integer  "user_id"
@@ -51,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160418045610) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.text     "age"
+    t.string   "area"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
