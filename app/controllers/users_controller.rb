@@ -4,9 +4,19 @@ class UsersController < ApplicationController
    
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(created_at: :desc)
-    @following_users = @user.following_users.all
-    @follower_users = @user.follower_users.all    
+    @microposts = @user.microposts.order(created_at: :desc).page(params[:page]).per(10)
+  end
+  
+  def followings
+    @title = "Following"
+    @user = User.find(params[:id])
+    @following_users = @user.following_users.page(params[:page]).per(10)
+  end
+
+  def followers
+    @title = "Follower"
+    @user = User.find(params[:id])
+    @follower_users = @user.follower_users.page(params[:page]).per(10)
   end
   
   def new
@@ -23,7 +33,7 @@ class UsersController < ApplicationController
     end
   end
   
- def edit
+  def edit
     @user = User.find(params[:id])
   end
 
@@ -36,17 +46,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def followings
-    @title = "Following"
-    @user = User.find(params[:id])
-    @following_users = @user.following_users.all
-  end
-
-  def followers
-    @title = "Followers"
-    @user = User.find(params[:id])
-    @follower_users = @user.follower_users.all
-  end
+  
   
   private
 
@@ -54,6 +54,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :area, :email, :password, :password_confirmation)
   end
   
+  # beforeフィルター
+
+    # ログイン済みユーザーかどうか確認
     def logged_in_user
       unless logged_in?
         flash[:danger] = "Please log in."
@@ -61,6 +64,7 @@ class UsersController < ApplicationController
       end
     end
 
+    # 正しいユーザーかどうか確認
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
